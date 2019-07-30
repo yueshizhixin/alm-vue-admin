@@ -1,6 +1,6 @@
 <template>
-  <div style="height: 100px;border: #409eff solid 1px;">
-    <el-table
+  <div>
+    <el-table v-for="item of 1"
       :data="tableData"
       style="width: 100%">
       <el-table-column

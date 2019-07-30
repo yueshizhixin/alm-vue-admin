@@ -1,9 +1,14 @@
 /*div背景颜色级别*/
-.divbg1 {
-  background-color: #f6f6f6;
-
+.divbg0{
+  background-color: white;
 }
 
+.divbg1 {
+  background-color: #f6f6f6;
+}
+.divbg1-5 {
+  background-color: #f4f4f4;
+}
 .divbg2 {
   background-color: #EBEEF5;
 }
@@ -14,4 +19,13 @@
 
 .divbg4 {
   background-color: #DCDFE6;
+}
+
+.shadow5 {
+  box-shadow: 0 1px 5px rgba(26, 26, 26, .1);
+}
+
+.shadow3 {
+  /*box-shadow: 0px 1px 3px 0 rgba(0, 0, 0, .1)*/
+  box-shadow: 0 1px 5px rgba(26, 26, 26, .1);
 }
