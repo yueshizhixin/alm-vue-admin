@@ -4,12 +4,12 @@
       <el-header class="divbg0 shadow5">
         <vue-header></vue-header>
       </el-header>
-      <el-container style="margin-top: 20px;padding: 0 20px;">
+      <el-container style="margin-top: 14px;padding: 0 20px;">
         <el-aside class="" style="width: 200px;">
           <vue-aside></vue-aside>
         </el-aside>
 
-        <el-container style="margin-left: 32px">
+        <el-container style="margin-left: 32px;margin-top: 6px">
           <el-header class="divbg0 shadow3" style="height: 50px;">
             <item-header></item-header>
           </el-header>
