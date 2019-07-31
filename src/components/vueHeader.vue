@@ -11,9 +11,9 @@
           </div>
         </el-row>
       </el-col>
-      <el-col v-for="(item,index) of 5" :class="{'active':index===0,'hvr-underline-from-center':index!==0}"
+      <el-col v-for="(item,index) of menu" :class="{'active':item.chosen===1,'hvr-underline-from-center':item.chosen===0}"
               class="headtitle">
-        目录{{index}}
+        {{item.name}}
       </el-col>
     </el-row>
   </div>
@@ -24,6 +24,9 @@
 
   export default {
     name: "vueHeader",
+    props: [
+      'menu'
+    ],
     data() {
       return {
         glb: glb,

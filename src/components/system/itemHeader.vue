@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div v-for="(item,index) of 5" class="tab" :class="{'active':index===0}">
-      第{{index}}页
+      阿斯顿发
       <i @click="close(item)" class="iconfont icon-close"></i>
     </div>
   </div>
@@ -27,25 +27,27 @@
 
 <style scoped>
   .header {
-    padding: 5px;
+    padding: 6px;
   }
 
   .tab {
     display: inline;
-    line-height: 40px;
-    border: 3px rgba(74, 66, 102, 0.35) solid;
-    padding: 5px 5px 5px 10px;
+    line-height: 38px;
+    border: 2px rgba(74, 66, 102, 0.35) solid;
+    padding: 4px 5px 4px 10px;
     margin-right: 10px;
     color: rgba(74, 66, 102, 0.35);
+    font-size: 14px;
+
   }
   .tab.active {
-    border: 3px rgba(74, 66, 102, 0.85) solid;
+    border: 2px rgba(74, 66, 102, 0.85) solid;
     color: rgba(74, 66, 102, 0.85);
   }
   .tab:hover{
-    border: 3px rgba(74, 66, 102, 0.85) solid;
+    border: 2px rgba(74, 66, 102, 0.85) solid;
     color: rgba(74, 66, 102, 0.85);
-    transition-duration: 0.4s;
+    transition-duration: 0.5s;
   }
 
 </style>
