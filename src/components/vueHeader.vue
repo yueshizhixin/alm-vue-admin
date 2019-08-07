@@ -11,9 +11,10 @@
           </div>
         </el-row>
       </el-col>
-      <el-col v-for="(item,index) of menu" :class="{'active':item.chosen===1,'hvr-underline-from-center':item.chosen===0}"
+      <el-col v-for="(item,index) of menu"
+              :class="{'active':item.chosen===1,'hvr-underline-from-center':item.chosen===0}"
               class="headtitle">
-        {{item.name}}
+        <div @click="changeMenu(item)">{{item.name}}</div>
       </el-col>
     </el-row>
   </div>
@@ -34,6 +35,14 @@
     },
     computed: {},
     methods: {
+      //切换菜单
+      changeMenu(item) {
+        if (item.chosen === 1) {
+          return
+        }
+        this.$emit("menuChange", item)
+      },
+
       test() {
       }
     },
