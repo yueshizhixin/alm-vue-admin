@@ -11,7 +11,8 @@
 
         <el-container style="margin-left: 32px;margin-top: 6px">
           <el-header class="divbg0 shadow3 itemheaderstyle" style="height: 50px;">
-            <item-header v-on:itemMenuClose="itemMenuClose" v-on:sonMenuChange="leftMenuChange" :menu="historyMenu"></item-header>
+            <item-header v-on:historyMenuClose="historyMenuClose" v-on:sonMenuChange="leftMenuChange"
+                         :menu="historyMenu"></item-header>
           </el-header>
           <el-main class="divbg0 shadow3 overflow mainstyle">
             <keep-alive>
@@ -37,7 +38,8 @@
     data() {
       return {
         menu: [],//一级与二级菜单
-        historyMenu: [{id: 1, name: '首页', url: '/',chosen:1}],//历史菜单
+        historyMenu: [{id: 1, name: '首页', url: '/', chosen: 1}],//历史菜单
+        historyMenuMaxLength: 8,//历史菜单最大长度
       }
     },
     created() {
@@ -48,9 +50,9 @@
       this.getMenu()
     },
     computed: {
+      //二级菜单
       itemMenu() {
         let item = (this.menu.find(x => x.chosen === 1) || {children: []})
-        // console.log(item)
         return item.children;
       }
     },
@@ -67,23 +69,44 @@
 
       //左侧菜单切换
       leftMenuChange(item) {
-        let f=false
+        this.$router.push({path: item.url});
+        this.historyMenuAdd(item)
+      },
+
+      //浏览历史添加
+      historyMenuAdd(item) {
+        let f = false
         this.historyMenu.forEach(x => {
-          x.chosen=0
+          x.chosen = 0
           if (x.id === item.id) {
-            f=true
-            x.chosen=1
+            f = true
+            x.chosen = 1
           }
         });
         if (!f) {
-          item.chosen=1
+          item.chosen = 1
+          if (this.historyMenu.length > this.historyMenuMaxLength) {
+            let index = this.historyMenu.shift()
+            this.historyMenu.shift()
+            this.historyMenu.unshift(index)
+          }
           this.historyMenu.push(item);
         }
       },
 
       //浏览历史关闭
-      itemMenuClose(item) {
-        console.log('asdfas',item)
+      historyMenuClose(item) {
+        item.chosen = 0
+        let index = this.historyMenu.indexOf(item)
+        let arr1 = this.historyMenu.slice(0, index)
+        let arr2 = this.historyMenu.slice(index + 1)
+        let temp = arr1.pop()
+        temp.chosen = 1
+        arr1.push(temp)
+        this.historyMenu = []
+        this.historyMenu.push(...arr1)
+        this.historyMenu.push(...arr2)
+        this.leftMenuChange(this.historyMenu[index - 1])
       },
 
       //获取菜单

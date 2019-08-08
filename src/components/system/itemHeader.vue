@@ -1,8 +1,8 @@
 <template>
   <div class="header">
-    <div v-for="(item,index) of menu" @click="routgo(item)" class="tab" :class="{'active':item.chosen===1}">
-      {{item.name}}
-      <i v-show="item.id>1" @click="close(item)" class="iconfont icon-close"></i>
+    <div v-for="(item,index) of menu"  class="tab" :class="{'active':item.chosen===1}">
+      <span style="cursor: pointer" @click="routgo(item)">{{item.name}}</span>
+      <i v-show="item.id>1" @click="close(item)" class="iconfont icon-close" style="cursor: pointer"></i>
     </div>
   </div>
 </template>
@@ -20,12 +20,11 @@
     methods: {
       //跳转
       routgo(item) {
-        this.$router.push({path: item.url});
         this.$emit("sonMenuChange", item)
       },
 
       close(item) {
-        this.$emit("itemMenuClose", item)
+        this.$emit("historyMenuClose", item)
       },
 
     }

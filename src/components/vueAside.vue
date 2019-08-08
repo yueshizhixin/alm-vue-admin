@@ -10,13 +10,14 @@
 
     <div>
       <ul class="ul-out">
-        <li v-for="(item,index) of menu" :key="index" :class="{'active':item.chosen===1}">
+        <li v-for="(item,index) of menu" :key="index">
           <div class="hvr-sweep-to-right divbg0 ul-out-parent">
             <i :class="item.icon">&nbsp;</i>&nbsp;
             {{item.name}}
           </div>
-          <div v-for="c of item.children" class="hvr-sweep-to-right divbg0 ul-son">
-            <div @click="routgo(c)">
+          <div v-for="c of item.children" :class="{'active':c.chosen===1}"
+            class="hvr-sweep-to-right divbg0 ul-son">
+            <div @click="routgo(c)" >
               &nbsp;{{c.name}}
             </div>
           </div>
@@ -48,10 +49,8 @@
     methods: {
       //跳转
       routgo(item) {
-        this.$router.push({path: item.url});
         this.$emit("sonMenuChange", item)
       },
-
     }
   }
 </script>
@@ -72,8 +71,8 @@
   }
 
   .active {
-    /*background-color: #4a4266;*/
-    /*color: #fff;*/
+    background-color: #4a4266;
+    color: #fff;
   }
 
   .ul-out {
