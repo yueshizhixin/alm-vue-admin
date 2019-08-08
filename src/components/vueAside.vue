@@ -72,7 +72,7 @@
 
   .active {
     background-color: #4a4266;
-    color: #fff;
+    color: #fff !important;
   }
 
   .ul-out {
@@ -90,11 +90,12 @@
   .ul-out-parent {
     width: calc(100% - 57px);
     font-size: 18px;
-    font-weight: 100;
+    /*font-weight: 100;*/
     line-height: 20px;
     padding: 14px 27px;
     margin-bottom: 3px;
     box-shadow: 0 0px 3px rgba(26, 26, 26, .1);
+    color: #444;
   }
 
   .ul-son {
@@ -102,10 +103,14 @@
     font-size: 16px;
     width: calc(100% - 57px - 27px);
     display: block;
-    font-weight: 100;
+    /*font-weight: 100;*/
     /*line-height: 20px;*/
     padding: 6px 27px;
     padding-left: 54px;
     box-shadow: 0 0px 3px rgba(26, 26, 26, .1);
+    color: #444;
+  }
+  .ul-son:hover {
+    color: #fff;
   }
 </style>

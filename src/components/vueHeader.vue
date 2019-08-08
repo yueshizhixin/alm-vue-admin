@@ -84,6 +84,7 @@
     line-height: 60px;
     font-size: 20px;
     cursor: pointer;
+    color: #444;
   }
 
   .headtitle.active {
