@@ -25,7 +25,7 @@
             <div class="skills" :style="{width:item.percent*100+'%',backgroundColor:noteMotestColor[index]}"
                  style="border-radius:5px">
               <!--<div style="float: left;margin-left: 10px;">{{item.name}}</div>-->
-              <div>{{item.count}}次</div>
+              <div>{{item.count}} 次</div>
             </div>
           </div>
         </div>

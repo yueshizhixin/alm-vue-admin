@@ -89,6 +89,12 @@
 
   .headtitle.active {
     border-bottom: 4px solid #4a4266;
+    color:#4a4266;
   }
+  .headtitle:hover{
+    color:#4a4266;
+  }
+
+
 
 </style>

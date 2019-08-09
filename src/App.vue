@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <el-container class="divbg1-5 mainpos" style="">
+    <el-container v-show="isSign" class="divbg1-5 mainpos">
       <el-header class="divbg0 shadow5">
         <vue-header v-on:menuChange="headMenuChange" :menu="menu"></vue-header>
       </el-header>
-      <el-container style="margin-top: 14px;padding: 0 20px;">
+      <el-container style="margin-top: 14px;">
         <el-aside class="" style="width: 200px;">
           <vue-aside v-on:sonMenuChange="leftMenuChange" :menu="itemMenu"></vue-aside>
         </el-aside>
@@ -14,14 +14,19 @@
             <item-header v-on:historyMenuClose="historyMenuClose" v-on:sonMenuChange="leftMenuChange"
                          :menu="historyMenu"></item-header>
           </el-header>
-          <el-main class="divbg0 shadow3 overflow mainstyle">
+          <el-main class="divbg0 shadow3 overflow mainstyle" style="color: #444">
             <keep-alive>
-              <router-view></router-view>
+              <router-view ></router-view>
             </keep-alive>
           </el-main>
         </el-container>
       </el-container>
     </el-container>
+
+    <!--<div v-show="!isSign">-->
+      <!--<router-view name="sign"></router-view>-->
+    <!--</div>-->
+
   </div>
 </template>
 
@@ -37,6 +42,7 @@
 
     data() {
       return {
+        isSign: true,//是否登录
         menu: [],//一级与二级菜单
         historyMenu: [{id: 1, name: '首页', url: '/', chosen: 1}],//历史菜单
         historyMenuMaxLength: 8,//历史菜单最大长度
@@ -157,14 +163,14 @@
 
   .overflow {
     overflow: auto;
-    width: calc(100vw - 20px - 20px - 200px - 12px - 20px);
+    width: calc(100vw - 32px - 200px);
     height: calc(100vh - 60px - 20px - 50px - 12px - 20px);
   }
 
   .mainstyle {
     margin-top: 3px;
     margin-bottom: 20px;
-    padding: 20px;
+    /*//  padding: 20px;*/
   }
 
   .itemheaderstyle {

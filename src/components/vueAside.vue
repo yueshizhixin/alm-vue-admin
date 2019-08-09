@@ -1,24 +1,17 @@
 <template>
   <div style="width: calc(100%);">
-    <!--<div style="width: calc(100%);">-->
-    <!--<div v-for="(item,index) of menu" :key="index" :class="{'active':item.chosen===1}"-->
-    <!--class="divbg0 menu1 hvr-sweep-to-right">-->
-    <!--<i :class="item.icon">&nbsp;</i>&nbsp;-->
-    <!--{{item.name}}-->
-    <!--</div>-->
-    <!--</div>-->
-
-    <div>
+    <div style="padding-right: 1px;">
       <ul class="ul-out">
         <li v-for="(item,index) of menu" :key="index">
-          <div class="hvr-sweep-to-right divbg0 ul-out-parent">
-            <i :class="item.icon">&nbsp;</i>&nbsp;
-            {{item.name}}
+          <div class="hvr-sweep-to-right divbg0 ul-out-parent" style="margin-bottom: 1px;">
+            <i :class="item.icon"></i>&nbsp;
+            <span style="">{{item.name}}</span>
           </div>
           <div v-for="c of item.children" :class="{'active':c.chosen===1}"
-            class="hvr-sweep-to-right divbg0 ul-son">
+            class="hvr-sweep-to-right divbg0 ul-son" style="margin-bottom: 1px;">
             <div @click="routgo(c)" >
-              &nbsp;{{c.name}}
+              <i></i>&nbsp;
+              {{c.name}}
             </div>
           </div>
         </li>
@@ -79,36 +72,40 @@
     list-style-type: none;
     padding-left: 0;
     margin-top: 6px;
-    margin-left: 3px;
-    width: calc(100% - 3px);
+    /*margin-left: 3px;*/
+    width: calc(100% - 0px);
+    box-shadow: 0px 0 3px rgba(26, 26, 26, .1);
   }
 
   .ul-out li {
-    margin-bottom: 3px
+    /*margin-bottom: 3px*/
   }
 
   .ul-out-parent {
     width: calc(100% - 57px);
-    font-size: 18px;
+    font-size: 14px;
     /*font-weight: 100;*/
     line-height: 20px;
-    padding: 14px 27px;
-    margin-bottom: 3px;
-    box-shadow: 0 0px 3px rgba(26, 26, 26, .1);
+    padding: 10px 27px;
+    /*margin-bottom: 3px;*/
+    /*box-shadow: 0 0px 3px rgba(26, 26, 26, .1);*/
     color: #444;
   }
 
   .ul-son {
     list-style-type: none;
-    font-size: 16px;
-    width: calc(100% - 57px - 27px);
+    font-size: 14px;
+    width: calc(100% - 57px - 16px);
     display: block;
     /*font-weight: 100;*/
-    /*line-height: 20px;*/
-    padding: 6px 27px;
-    padding-left: 54px;
-    box-shadow: 0 0px 3px rgba(26, 26, 26, .1);
+    line-height: 20px;
+    padding: 10px 27px;
+    padding-left: 43px;
+    /*box-shadow: 0 0px 3px rgba(26, 26, 26, .1);*/
     color: #444;
+  }
+  .ul-out-parent:hover {
+    color: #fff;
   }
   .ul-son:hover {
     color: #fff;
